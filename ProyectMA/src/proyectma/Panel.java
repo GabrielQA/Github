@@ -47,8 +47,6 @@ public class Panel extends javax.swing.JFrame {
             }
         });
 
-        T.setBackground(new java.awt.Color(51, 51, 51));
-        T.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(T);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -61,16 +59,16 @@ public class Panel extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(Codigo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addGap(22, 22, 22)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(Codigo)
                 .addContainerGap())
         );
@@ -92,17 +90,33 @@ public class Panel extends javax.swing.JFrame {
     private void CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoActionPerformed
         // TODO add your handling code here:
         String Local="";
+        String Simbolos="";
+        
         Random ra = new Random();
          int[][] matrix = new int[5][5];
            for (int y=0; y <= 4; y++){
            Local+="\n";
+           Simbolos+="\n";
             for (int x = 0; x <= 4; x++) {
               matrix[y][x] = (int) (Math.random() * 50);
               Local += String.valueOf(matrix[y][x]);
                 Local+=" ";
+                if (matrix [y][x] %2 == 0){
+                    Simbolos+="$";
+                    
+                }
+                if ( matrix [y][x]%2==1){
+                    Simbolos+="#";
+                }
+             Simbolos+=" ";
+             
     }//GEN-LAST:event_CodigoActionPerformed
     }
+           Local+="\n";
+           Local+="\n";
+           Local+=Simbolos;
            T.setText(Local);
+           
     }
     /** T.setText(T.getText() + (ra.nextInt(50) + 1) + "|");
                 T.setText(T.getText() + System.lineSeparator());
